@@ -1,8 +1,6 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList } from 'react-native'
 
-import Icon from 'react-native-vector-icons/MaterialIcons'
-
 import Check from '../../assets/check.png'
 import notCheck from '../../assets/notCheck.png'
 
@@ -14,7 +12,6 @@ const ListaTarefas = ({dados}) => {
                 renderItem={({item})=>(
                     <TouchableOpacity 
                         style={styles.boxTarefa}
-                        keyExtractor={item._id}
                     >
                         <Image source={item.status ? Check : notCheck} style={styles.IconCheck}/>
                         <View>
