@@ -5,6 +5,14 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import ListaTarefas from '../../components/ListaTarefas'
 
 const Main = () => {
+
+    const dados=[
+        {titulo:'Pagar conta de energia', descricao:'Realizar o pagamento da conta de nergia', status:false},
+        {titulo:'Tirar o lixo', descricao:'Tirar o lixo na parte da manha', status:true},
+        {titulo:'Trocar as cordas do vioão', descricao:'Troca do acordamento e limpeza do violão', status:true},
+        {titulo:'Estudar JS', descricao:'Iniciar rotina de estudos em JS', status:false}
+    ]
+
     return (
         <View style={styles.container}>
             <View style={styles.boxPesquisa}>
@@ -17,8 +25,7 @@ const Main = () => {
                         color={'#95A5A6'}
                         style={styles.iconPesq}
                     />       
-                    <TextInput
-                        
+                    <TextInput                      
                         placeholder="Encontre uma tarefa"
                         placeholderTextColor="#95A5A6"
                     />
@@ -30,7 +37,7 @@ const Main = () => {
                     <Icon name="add" size={30} color={'white'}/>
                 </TouchableOpacity>
             </View>
-            <ListaTarefas/>
+            <ListaTarefas dados={dados}/>
         </View>
     )
 }
