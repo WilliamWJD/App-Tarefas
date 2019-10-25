@@ -1,6 +1,5 @@
 import React from 'react'
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import { View, StyleSheet} from 'react-native'
 
 import Pesquisa from '../../components/Pesquisa'
 import ListaTarefas from '../../components/ListaTarefas'
