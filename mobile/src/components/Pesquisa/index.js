@@ -3,7 +3,7 @@ import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
 
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
-const Pesquisa = () => {
+const Pesquisa = ({navigation}) => {
     return (
         <View style={styles.boxPesquisa}>
             <View
@@ -21,7 +21,7 @@ const Pesquisa = () => {
                 />
             </View>
             <TouchableOpacity
-                onPress={() => { }}
+                onPress={() => {navigation.navigate('Cadastro')}}
                 style={styles.add}
             >
                 <Icon name="add" size={30} color={'white'} />

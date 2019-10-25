@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import Pesquisa from '../../components/Pesquisa'
 import ListaTarefas from '../../components/ListaTarefas'
 
-const Main = () => {
+const Main = ({navigation}) => {
 
     const dados=[
         {titulo:'Pagar conta de energia', descricao:'Realizar o pagamento da conta de nergia', status:false},
@@ -16,7 +16,7 @@ const Main = () => {
 
     return (
         <View style={styles.container}>
-            <Pesquisa/>
+            <Pesquisa navigation={navigation}/>
             <ListaTarefas dados={dados}/>
         </View>
     )
