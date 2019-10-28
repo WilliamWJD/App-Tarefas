@@ -21,6 +21,7 @@ const ListaTarefas = ({tarefas, navigation}) => {
                         </View>    
                     </TouchableOpacity>
                 )}
+                keyExtractor={(item, index) => index.toString()}
             />
         </View>
     )

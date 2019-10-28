@@ -20,7 +20,7 @@ const Cadastro = ({navigation}) => {
             titulo:titulo,
             descricao:descricao
         })
-        console.log(JSON.stringify(response.data))
+        onClose()
     }
 
     const onClose=()=>{
