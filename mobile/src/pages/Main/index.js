@@ -8,7 +8,7 @@ const Main = ({navigation}) => {
 
     const dados=[
         {titulo:'Pagar conta de energia', descricao:'Realizar o pagamento da conta de nergia', status:false},
-        {titulo:'Tirar o lixo', descricao:'Tirar o lixo na parte da manha', status:true},
+        {titulo:'Tirar o lixo', descricao:'Tirar o lixo na parte da manhã', status:true},
         {titulo:'Trocar as cordas do vioão', descricao:'Troca do acordamento e limpeza do violão', status:true},
         {titulo:'Estudar JS', descricao:'Iniciar rotina de estudos em JS', status:false}
     ]

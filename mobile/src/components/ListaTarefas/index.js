@@ -40,7 +40,7 @@ const styles=StyleSheet.create({
         paddingVertical:10,
         flexDirection:'row',
         alignItems:'center',
-        marginBottom:14
+        marginBottom:14,    
     },
 
     IconCheck:{
@@ -56,7 +56,8 @@ const styles=StyleSheet.create({
     },
 
     descricao:{
-        color:'#7F8C8D'
+        color:'#7F8C8D',
+        flexWrap: "wrap"
     }
 })
 
