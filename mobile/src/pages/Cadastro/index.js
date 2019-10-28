@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
-import { View, Text,StyleSheet, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text,StyleSheet, TextInput, TouchableOpacity, Alert, Switch } from 'react-native'
+
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 import api from '../../services/api'
 
@@ -8,15 +10,18 @@ const Cadastro = ({navigation}) => {
     const cadastro=navigation.getParam('tarefas',{
         titulo:'',
         descricao:'',
+        status:true
     })
-
+    
     const [titulo, setTitulo]=useState(`${cadastro.titulo}`)
     const [descricao, setDescricao]=useState(`${cadastro.descricao}`)
+    const [status, setStatus]=useState(`${cadastro.status}`)
 
     async function onSave(){
         const response=await api.post('/',{
             titulo:titulo,
-            descricao:descricao
+            descricao:descricao,
+            status:status
         })
         onClose()
     }
@@ -24,14 +29,24 @@ const Cadastro = ({navigation}) => {
     async function onUpdate(){
         const response=await api.put(`/${cadastro._id}`,{
             titulo:titulo,
-            descricao:descricao
+            descricao:descricao,
+            status:status
         })
         onClose()
     }
 
-    const onClose=()=>{
+    async function onDelete(){
+        const response=await api.delete(`/${cadastro._id}`)
+        onClose()
+    }
+
+    const onClose=(value)=>{
         navigation.goBack()
     }
+
+    function toggleSwitch (value)  {
+        setStatus(value)
+     }
 
     return (
         <View style={styles.container}>
@@ -51,6 +66,11 @@ const Cadastro = ({navigation}) => {
                 value={descricao}
             />
 
+            <Switch
+                onValueChange={toggleSwitch}
+                value={status}
+            />
+
             <View style={styles.boxOptions}>
                 <TouchableOpacity
                     style={styles.btnSalvar}
@@ -60,6 +80,21 @@ const Cadastro = ({navigation}) => {
                         Salvar
                     </Text>
                 </TouchableOpacity>
+
+                {cadastro._id && (
+                    <TouchableOpacity
+                        style={styles.btnExcluir}
+                        onPress={onDelete}
+                    >
+                        <Icon
+                            name="delete"
+                            size={35}
+                            color={'#e74c3c'}
+                            style={styles.iconPesq}
+                        />
+                    </TouchableOpacity>
+                )}
+
                 <TouchableOpacity
                     style={styles.btnCancelar}
                     onPress={onClose}
@@ -91,7 +126,8 @@ const styles=StyleSheet.create({
         flexDirection:'row',
         justifyContent:'center',
         alignItems:'center',
-        bottom: 0 
+        bottom: 0 ,
+        justifyContent:"space-between"
     },
 
     btnSalvar:{
@@ -104,6 +140,12 @@ const styles=StyleSheet.create({
         width:'36%',
         borderWidth:2,
         borderColor:'#27AE60'
+    },
+
+    btnExcluir:{
+        backgroundColor:'#ECF0F1',
+        borderRadius:125,
+        padding:5
     },
 
     textBtnSalvar:{

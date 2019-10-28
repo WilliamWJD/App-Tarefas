@@ -19,7 +19,7 @@ module.exports={
 
     async atualiza(req,res){
         const {id_tarefa}=req.params
-        const tarefa=await Tarefa.update({_id:id_tarefa},req.body)
+        const tarefa=await Tarefa.updateOne({_id:id_tarefa},req.body)
         return res.json(tarefa)
     },
 

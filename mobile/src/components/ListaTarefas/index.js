@@ -18,7 +18,7 @@ const ListaTarefas = ({tarefas, navigation}) => {
                         <View>
                             <Text style={styles.titulo}>{item.titulo}</Text>
                             <Text style={styles.descricao}>{item.descricao}</Text>
-                        </View>    
+                        </View>   
                     </TouchableOpacity>
                 )}
                 keyExtractor={(item, index) => index.toString()}
