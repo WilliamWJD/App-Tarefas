@@ -4,14 +4,15 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList } from 'react
 import Check from '../../assets/check.png'
 import notCheck from '../../assets/notCheck.png'
 
-const ListaTarefas = ({dados}) => {
+const ListaTarefas = ({tarefas, navigation}) => {
     return (
         <View style={styles.container}>
             <FlatList
-                data={dados}
+                data={tarefas}
                 renderItem={({item})=>(
                     <TouchableOpacity 
                         style={styles.boxTarefa}
+                        onPress={()=>{navigation.navigate('Cadastro',{tarefas:item})}}
                     >
                         <Image source={item.status ? Check : notCheck} style={styles.IconCheck}/>
                         <View>

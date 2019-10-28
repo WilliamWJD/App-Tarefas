@@ -1,22 +1,29 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { View, StyleSheet} from 'react-native'
 
 import Pesquisa from '../../components/Pesquisa'
 import ListaTarefas from '../../components/ListaTarefas'
+import api from '../../services/api'
 
 const Main = ({navigation}) => {
 
-    const dados=[
-        {titulo:'Pagar conta de energia', descricao:'Realizar o pagamento da conta de nergia', status:false},
-        {titulo:'Tirar o lixo', descricao:'Tirar o lixo na parte da manhã', status:true},
-        {titulo:'Trocar as cordas do vioão', descricao:'Troca do acordamento e limpeza do violão', status:true},
-        {titulo:'Estudar JS', descricao:'Iniciar rotina de estudos em JS', status:false}
-    ]
+    const [tarefas, setTarefas]=useState([])
+
+    useEffect(()=>{
+        async function carregaTarefas(){
+            const tarefas=await api.get()
+            setTarefas(tarefas.data)
+        }
+        carregaTarefas()
+    },[])
 
     return (
         <View style={styles.container}>
             <Pesquisa navigation={navigation}/>
-            <ListaTarefas dados={dados}/>
+            <ListaTarefas 
+                tarefas={tarefas}
+                navigation={navigation}    
+            />
         </View>
     )
 }

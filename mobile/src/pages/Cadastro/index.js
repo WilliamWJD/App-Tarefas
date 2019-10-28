@@ -1,8 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { View, Text,StyleSheet, TextInput, TouchableOpacity } from 'react-native'
 
 const Cadastro = ({navigation}) => {
+    
+    const cadastro=navigation.getParam('tarefas',{
+        id:null,
+        titulo:'',
+        descricao:'',
+        createdAt:new Date(),
+        updatedAt:new Date()
+    })
 
+    const [titulo, setTitulo]=useState(`${cadastro.titulo}`)
+    const [descricao, seDescricao]=useState(`${cadastro.descricao}`)
+    
     const onClose=()=>{
         navigation.goBack()
     }
@@ -13,12 +24,14 @@ const Cadastro = ({navigation}) => {
                 placeholder="Digite um título"
                 placeholderTextColor="#ECF0F1"
                 style={styles.input}
+                value={titulo}
             />
 
             <TextInput
                 placeholder="Digite uma decrição"
                 placeholderTextColor="#ECF0F1"
                 style={styles.input}
+                value={descricao}
             />
 
             <View style={styles.boxOptions}>
