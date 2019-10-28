@@ -8,8 +8,6 @@ const Cadastro = ({navigation}) => {
     const cadastro=navigation.getParam('tarefas',{
         titulo:'',
         descricao:'',
-        createdAt:new Date(),
-        updatedAt:new Date()
     })
 
     const [titulo, setTitulo]=useState(`${cadastro.titulo}`)
@@ -17,6 +15,14 @@ const Cadastro = ({navigation}) => {
 
     async function onSave(){
         const response=await api.post('/',{
+            titulo:titulo,
+            descricao:descricao
+        })
+        onClose()
+    }
+
+    async function onUpdate(){
+        const response=await api.put(`/${cadastro._id}`,{
             titulo:titulo,
             descricao:descricao
         })
@@ -48,7 +54,7 @@ const Cadastro = ({navigation}) => {
             <View style={styles.boxOptions}>
                 <TouchableOpacity
                     style={styles.btnSalvar}
-                    onPress={onSave}
+                    onPress={()=>{cadastro._id ? onUpdate() : onSave()}}
                 >
                     <Text style={styles.textBtnSalvar}>
                         Salvar
