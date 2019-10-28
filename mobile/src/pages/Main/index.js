@@ -11,7 +11,7 @@ const Main = ({navigation}) => {
 
     useEffect(()=>{
         async function carregaTarefas(){
-            const tarefas=await api.get()
+            const tarefas=await api.get('/')
             setTarefas(tarefas.data)
         }
         carregaTarefas()

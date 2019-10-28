@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
 import { View, Text,StyleSheet, TextInput, TouchableOpacity } from 'react-native'
 
+import api from '../../services/api'
+
 const Cadastro = ({navigation}) => {
     
     const cadastro=navigation.getParam('tarefas',{
-        id:null,
         titulo:'',
         descricao:'',
         createdAt:new Date(),
@@ -12,8 +13,16 @@ const Cadastro = ({navigation}) => {
     })
 
     const [titulo, setTitulo]=useState(`${cadastro.titulo}`)
-    const [descricao, seDescricao]=useState(`${cadastro.descricao}`)
-    
+    const [descricao, setDescricao]=useState(`${cadastro.descricao}`)
+
+    async function onSave(){
+        const response=await api.post('/',{
+            titulo:titulo,
+            descricao:descricao
+        })
+        console.log(JSON.stringify(response.data))
+    }
+
     const onClose=()=>{
         navigation.goBack()
     }
@@ -24,6 +33,7 @@ const Cadastro = ({navigation}) => {
                 placeholder="Digite um título"
                 placeholderTextColor="#ECF0F1"
                 style={styles.input}
+                onChangeText={(titulo)=>setTitulo(titulo)}
                 value={titulo}
             />
 
@@ -31,13 +41,14 @@ const Cadastro = ({navigation}) => {
                 placeholder="Digite uma decrição"
                 placeholderTextColor="#ECF0F1"
                 style={styles.input}
+                onChangeText={(descricao)=>setDescricao(descricao)}
                 value={descricao}
             />
 
             <View style={styles.boxOptions}>
                 <TouchableOpacity
                     style={styles.btnSalvar}
-                    onPress={()=>{}}
+                    onPress={onSave}
                 >
                     <Text style={styles.textBtnSalvar}>
                         Salvar
