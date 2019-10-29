@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
 
 import Icon from 'react-native-vector-icons/MaterialIcons'
@@ -10,7 +10,7 @@ const Pesquisa = ({navigation}) => {
                 style={styles.inputPesquisa}
             >
                 <Icon
-                    name="search"
+                    name={'search'}
                     size={30}
                     color={'#95A5A6'}
                     style={styles.iconPesq}
@@ -24,7 +24,7 @@ const Pesquisa = ({navigation}) => {
                 onPress={() => {navigation.navigate('Cadastro')}}
                 style={styles.add}
             >
-                <Icon name="add" size={30} color={'white'} />
+                <Icon name={'add'} size={30} color={'white'} />
             </TouchableOpacity>
         </View>
     )

@@ -1,10 +1,10 @@
-import React from 'react'
-import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList } from 'react-native'
+import React, {useState} from 'react'
+import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList, Alert } from 'react-native'
 
 import Check from '../../assets/check.png'
 import notCheck from '../../assets/notCheck.png'
 
-const ListaTarefas = ({tarefas, navigation}) => {
+const ListaTarefas = ({tarefas, navigation}) => {   
     return (
         <View style={styles.container}>
             <FlatList
@@ -14,11 +14,11 @@ const ListaTarefas = ({tarefas, navigation}) => {
                         style={styles.boxTarefa}
                         onPress={()=>{navigation.navigate('Cadastro',{tarefas:item})}}
                     >
-                        <Image source={item.status ? Check : notCheck} style={styles.IconCheck}/>
-                        <View>
-                            <Text style={styles.titulo}>{item.titulo}</Text>
-                            <Text style={styles.descricao}>{item.descricao}</Text>
-                        </View>   
+                            <Image source={item.status ? Check : notCheck} style={styles.IconCheck}/>
+                            <View>
+                                <Text style={styles.titulo}>{item.titulo}</Text>
+                                <Text style={styles.descricao}>{item.descricao}</Text>
+                            </View>  
                     </TouchableOpacity>
                 )}
                 keyExtractor={(item, index) => index.toString()}
@@ -59,7 +59,8 @@ const styles=StyleSheet.create({
 
     descricao:{
         color:'#7F8C8D',
-        flexWrap: "wrap"
+        flexWrap: "wrap",
+        width:'90%'
     }
 })
 

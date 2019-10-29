@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { View, StyleSheet} from 'react-native'
+import { View, StyleSheet, Alert} from 'react-native'
 
 import Pesquisa from '../../components/Pesquisa'
 import ListaTarefas from '../../components/ListaTarefas'
@@ -19,7 +19,9 @@ const Main = ({navigation}) => {
 
     return (
         <View style={styles.container}>
-            <Pesquisa navigation={navigation}/>
+            <Pesquisa 
+                navigation={navigation}
+            />
             <ListaTarefas 
                 tarefas={tarefas}
                 navigation={navigation}    
