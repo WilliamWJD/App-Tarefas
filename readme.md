@@ -1,9 +1,9 @@
 # App Tarefas
 
 <p>
-<img src="./mockup/home.jpeg" width="154"/>
-<img src="./mockup/cadastro.jpeg" width="154"/>
-<img src="./mockup/altera.jpeg" width="154"/>
+<img src="./mockup/home.jpeg" width="200"/>
+<img src="./mockup/cadastro.jpeg" width="200"/>
+<img src="./mockup/altera.jpeg" width="200"/>
 </p>
 
 ## Tecnologias
