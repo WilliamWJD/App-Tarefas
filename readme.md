@@ -1,8 +1,10 @@
 # App Tarefas
 
+<p>
 <img src="./mockup/home.jpeg" width="154"/>
 <img src="./mockup/cadastro.jpeg" width="154"/>
 <img src="./mockup/altera.jpeg" width="154"/>
+</p>
 
 ## Tecnologias
 
@@ -14,7 +16,7 @@ Projeto desenvolvido com as seguintes tecnologias:
 - MongoDB
 
 ## Projeto
-Projeto desenvolvido com o objetivo de registrar as tarefas que estão pendentes ou concluídas
+Projeto desenvolvido com o objetivo de registrar as tarefas do dia a dia que estão pendentes ou concluídas
 
 ## Configurando o backend
 
