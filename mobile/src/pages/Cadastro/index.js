@@ -15,7 +15,7 @@ const Cadastro = ({ navigation }) => {
 
     const [titulo, setTitulo] = useState(`${cadastro.titulo}`)
     const [descricao, setDescricao] = useState(`${cadastro.descricao}`)
-    const [status, setStatus] = useState(`${cadastro.status}`)
+    const [status, setStatus] = useState(cadastro.status)
 
     async function onSave() {
         const response = await api.post('/', {
@@ -44,7 +44,7 @@ const Cadastro = ({ navigation }) => {
         navigation.goBack()
     }
 
-    function toggleSwitch(value) {
+    const toggleSwitch=(value)=> {
         setStatus(value)
     }
 
@@ -79,7 +79,7 @@ const Cadastro = ({ navigation }) => {
                     }
                 }
                 onValueChange={toggleSwitch}
-                value={cadastro.status}
+                value={status}
             />
 
             <View style={styles.boxOptions}>
