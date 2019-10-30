@@ -29,7 +29,7 @@ Projeto desenvolvido com o objetivo de registrar as tarefas do dia a dia que est
 ## Configurando o frontend - mobile
 1. Dentro da pasta mobile execute o comando yarn install
 2. Coloque o IP local do seu computador em `mobile/src/services/api.js`
-3. Execute o comando react-native run-android para executar a aplicação
+3. Execute o comando react-native run-android para rodar a aplicação
 
 ## Autor
 William José Dias <a href="https://github.com/WilliamWJD">GIT</a>
